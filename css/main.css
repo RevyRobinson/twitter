@@ -35,3 +35,12 @@ header {
 .text-task {
 	border-bottom: 3px solid  #1dcaff; 
 }
+
+/*clase de texto chequeado*/
+#task-list div.done {
+	background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+#task-list div.done {
+}
