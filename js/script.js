@@ -1,42 +1,51 @@
 function addTask(){
-	//sacar los elementos a poner en el div
-	//un div vacio
-	var node = document.createElement("DIV");
-	//un checkbox
-	var input = document.createElement("input");
-	var checkbox = input.setAttribute("type","checkbox");
-	//el value de la tarea
-	var inputValue = document.getElementById("task").value;
-  	var text = document.createTextNode(inputValue);
-	//tachito de basura
-	var tachito = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-	//corazon gay <3
-	var kokoro = '<i class="fa fa-heart" aria-hidden="true"></i>';
+
+//crear div que necesito con clase col-xs-offset-2 col-xs-8
+var div = document.createElement('div');
+div.setAttribute('class','text-task caja-lista col-xs-offset-1 col-xs-10');
+//crear input con typo checkbox
+var checkbox = document.createElement('input');
+checkbox.setAttribute('type','checkbox');
+checkbox.setAttribute('onclick','checkTask()');
+checkbox.setAttribute('id','check-box');
+//crear div y el nodo de texto a utilizar
+var p = document.createElement('div');
+p.setAttribute('id','caja-de-texto');
+//sacar el value de texto y transformarlo en nodo de texto
+var inputValue = document.getElementById("task").value;
+var tarea = document.createTextNode(inputValue);
+//crear i con class="fa fa-trash-o" aria-hidden="true"
+var tachito = document.createElement('i');
+tachito.setAttribute('class', 'fa fa-trash-o');
+tachito.setAttribute('aria-hidden', 'true');
+tachito.setAttribute('id', 'tachito');
+tachito.setAttribute('onclick','eraseTask()');
 
 
-	//asi se suman al div hijo
-	node.appendChild(checkbox);
-	node.appendChild(text);
-	node.appendChild(kokoro);
-	node.appendChild(tachito);
-	//y para meterlos a todos al padre
-	document.getElementById('task-list').appendChild(div) ;
+//meter los hijos dentro de sus padres
+p.appendChild(tarea);
+div.appendChild(checkbox);
+div.appendChild(p);
+div.appendChild(tachito);
+
+//meter el div entero dentro del html
+document.getElementById('contenedor-respuestas').appendChild(div);
 
 
 
 }
-/*
-var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
+function checkTask() {
+	var checkbox = document.getElementById('checkbox');
+	if (document.getElementById("check-box").checked = true){
+		document.getElementById('caja-de-texto').classList.toggle('check') ;
+	}
+}
+
+function eraseTask(){
+	//selecciona al padre de el mismo y lo borra
+	document.getElementById('tachito').parentNode.setAttribute('class','erased');
+}
 
 
 
 
-  var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-*/

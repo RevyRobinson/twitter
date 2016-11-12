@@ -5,6 +5,9 @@ header {
 	background-color: #1dcaff;
 	margin-bottom: 20px;
 }
+.text-input {
+	border-bottom: 3px solid  #1dcaff; 
+}
 .titulo-header {
 	text-align: center;
 	margin-top: 0px;
@@ -24,23 +27,39 @@ header {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	width: 100%;
-	padding: 5%;
+	padding: 2%;
 	background-color: #1dcaff;
 	color: white;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 
 }
+/*CSS para mantener  las cajas organizadas una bajo la otra pero  acomodando los elementos de dentro, al lado*/
 
+.caja-lista *{
+	display:inline-block;
+}
+/*CSS para la caja de la lista (checkbox, texto y tachito)*/
 .text-task {
 	border-bottom: 3px solid  #1dcaff; 
+	padding: 15px;
+	text-align: center;
+}
+.text-task div {
+	padding-left: 10%;
+	padding-right: 40%;
+	font-weight: bold;
+}
+.text-task input , .text-task i {
 }
 
-/*clase de texto chequeado*/
-#task-list div.done {
-	background: #888;
-    color: #fff;
-    text-decoration: line-through;
+/*chequeado!*/
+
+.check {
+	text-decoration: line-through;
 }
-#task-list div.done {
+
+/*borrado!*/
+.erased {
+	display: none;
 }
